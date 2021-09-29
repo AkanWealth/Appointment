@@ -3,20 +3,24 @@
     <h1>Welcome User</h1>
 
     <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <router-link to="/" class="nav-link active">Home</router-link>
-  </li>
-  <li class="nav-item">
-    <router-link to="/view-user" class="nav-link">View User</router-link>
-  </li>
-  <li class="nav-item">
-    <router-link to="/view-appointment" class="nav-link">View Appointment</router-link>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
-  </li>
-</ul>
-<div class="table">
+      <li class="nav-item">
+        <router-link to="/" class="nav-link">Home</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link to="/view-user" class="nav-link active"
+          >View User</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <router-link to="/view-appointment" class="nav-link"
+          >View Appointment</router-link
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+    <div class="table" v-if="users===1">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -36,53 +40,39 @@
           </tr>
         </tbody>
       </table>
-      </div>
+    </div>
+    <div v-else>You don have access to this page</div>
   </div>
 </template>
+
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'HelloWorld',
+  name: 'ViewUser',
+  props: {
+    msg: String
+  },
   data () {
-    return {
-      email: '',
-      password: ''
-    }
+    return {}
   },
   async created () {
-    const response = await axios.get('appointment')
+    const response = await axios.get('users')
 
     // if (localStorage.getItem === null) {
     //   this.$router.push('/login')
     // }
-    this.$store.dispatch('appointment', response.data)
-    console.log(this.$store.getters.appointment)
+    this.$store.dispatch('users', response.data)
   },
   computed: {
     ...mapGetters(['users'])
   }
-  // created () {
-  //   this.getAllUsers()
-  // },
-  // methods: {
-  //   getAllUsers () {
-  //     axios.get('users')
-  //       .then(response => {
-  //         console.log(response)
-  //       })
-  //       .catch(error => {
-  //         console.log(error)
-  //       })
-  //   }
-
-  // }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+/* h3 {
   margin: 40px 0 0;
 }
 ul {
@@ -95,5 +85,5 @@ li {
 }
 a {
   color: #42b983;
-}
+} */
 </style>
