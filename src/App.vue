@@ -7,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav" v-if="!users">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
@@ -21,14 +21,17 @@
           <router-link to="/login" class="nav-link">Login</router-link>
         </li>
         <li class="nav-item">
+          <router-link to="/view-user" class="nav-link">View Users</router-link>
+        </li>
+        <li class="nav-item">
           <router-link to="/create" class="nav-link">Create an Appointment</router-link>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto" v-if="users">
+      <!-- <ul class="navbar-nav ml-auto" v-if="users">
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link" @click="logout">Logout</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>User List</h1>
+    <h1>List of appointment</h1>
     <div class="table">
       <table class="table table-striped">
         <thead>
@@ -16,7 +16,7 @@
             <td>{{ n.fname }}</td>
             <td>{{ n.email }}</td>
             <td>{{ n.mobile }}</td>
-            <td>{{ n.book_appoint }}</td>
+            <td>{{ n.book_apoint }}</td>
             <button type="button" class="btn btn-primary" @click="remove(n.id)">
               Remove
             </button>
@@ -80,7 +80,7 @@ export default {
         await axios.delete('appointment/' + id)
         this.$store.dispatch('appointment')
         location.reload()
-        this.$rounte.push('/admin')
+        this.$route.push('/admin')
       } else {
         return false
       }

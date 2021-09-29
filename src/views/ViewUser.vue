@@ -20,7 +20,7 @@
         <a class="nav-link disabled">Disabled</a>
       </li>
     </ul>
-    <div class="table" v-if="users===1">
+    <div class="table">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -34,14 +34,14 @@
             <td>{{ n.first_name }}</td>
             <td>{{ n.last_name }}</td>
             <td>{{ n.email }}</td>
-            <!-- <v-btn text depressed color="primary" @click="remove">
+            <button type="button" class="btn btn-primary" @click="remove(n.user_id)">
               Remove
-            </v-btn> -->
+            </button>
           </tr>
         </tbody>
       </table>
     </div>
-    <div v-else>You don have access to this page</div>
+    <!-- <div v-else>You don have access to this page</div> -->
   </div>
 </template>
 
@@ -66,6 +66,23 @@ export default {
   },
   computed: {
     ...mapGetters(['users'])
+  },
+  methods: {
+    // remove (user_id) {
+    //   axios.delete(`users/${user_id}`)
+    //   this.$store.dispatch('users', user_id)
+
+    // },
+    async remove (id) {
+      if (confirm('Are you sure you want to delete this appointment?')) {
+        await axios.delete(`users/${id}`)
+        this.$store.dispatch('user')
+        location.reload()
+        this.$route.push('/admin')
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

@@ -14,13 +14,13 @@
         <input
           type="email"
           class="form-control"
-          placeholder="Last Name"
+          placeholder="Email"
           v-model="email"
         />
       </div>
       <div class="mb-3 mb-5">
         <input
-          type="email"
+          type="mobile"
           class="form-control"
           placeholder="Phone Number"
           v-model="mobile"
@@ -55,7 +55,7 @@ export default {
   methods: {
     async submit () {
       try {
-        const response = await axios.post('apointments', {
+        const response = await axios.post('appointment', {
           fname: this.fname,
           email: this.email,
           mobile: this.mobile,
@@ -68,7 +68,7 @@ export default {
         this.$router.push('/')
         // location.reload()
       } catch (error) {
-        this.error = 'Invalid Email or Password'
+        this.error = 'Server error'
         console.log(this.error)
       }
     }
