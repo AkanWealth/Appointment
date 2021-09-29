@@ -7,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" v-if="!users">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
@@ -22,17 +22,35 @@
         </li>
         <li class="nav-item">
           <router-link to="/create" class="nav-link">Create an Appointment</router-link>
-          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" v-if="users">
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" @click="logout">Logout</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
     <router-view />
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  methods: {
+    logout () {
+      localStorage.removeItem('token')
+      this.$store.dispatch('users', null)
+      this.$router.push('/')
+    }
+  },
+  computed: {
+    ...mapGetters(['users'])
+  }
+}
+</script>
 
 <style>
 #app {

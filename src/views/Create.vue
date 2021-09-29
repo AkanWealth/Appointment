@@ -27,14 +27,17 @@
         />
       </div>
       <div class="mb-3">
-        <input
+        <textarea
           type="text"
           class="form-control"
-          placeholder="Password"
+          placeholder="Drop a message..."
           v-model="book_appoint"
-        />
+          rows="3"
+        ></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Submit</button>
+      <button type="submit" class="btn btn-primary" @click.prevent="submit">
+        Submit
+      </button>
     </form>
   </div>
 </template>
@@ -52,7 +55,7 @@ export default {
   methods: {
     async submit () {
       try {
-        const response = await axios.post('appointment', {
+        const response = await axios.post('apointments', {
           fname: this.fname,
           email: this.email,
           mobile: this.mobile,
@@ -62,7 +65,7 @@ export default {
         localStorage.setItem('token', response.data.token)
         // this.$store.dispatch('users', response.data.user)
         console.log(response)
-        this.$router.push('/about')
+        this.$router.push('/')
         // location.reload()
       } catch (error) {
         this.error = 'Invalid Email or Password'

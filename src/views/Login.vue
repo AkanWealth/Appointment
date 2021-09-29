@@ -37,15 +37,29 @@ export default {
   methods: {
     async submit () {
       try {
+        // check if user has role admin
+
         const response = await axios.post('login', {
           email: this.email,
           password: this.password
         })
+        if (response.data.data.role_id === 1) {
+          localStorage.setItem('token', response.data.token)
+          this.$store.dispatch('users', response.data.user)
+          console.log(response)
+          this.$router.push('/admin')
+          location.reload()
+        } else {
+          localStorage.setItem('token', response.data.token)
+          this.$store.dispatch('users', response.data.user)
+          console.log(response)
+          this.$router.push('/')
+        }
 
-        localStorage.setItem('token', response.data.token)
-        this.$store.dispatch('users', response.data.user)
-        console.log(response)
-        this.$router.push('/')
+        // localStorage.setItem('token', response.data.token)
+        // this.$store.dispatch('users', response.data.user)
+        // console.log(response)
+        // this.$router.push('/')
         // location.reload()
       } catch (error) {
         this.error = ('Invalid Email or Password')

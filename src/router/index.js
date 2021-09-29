@@ -6,6 +6,7 @@ import Register from '../views/Register.vue'
 import ViewUser from '../views/ViewUser.vue'
 import ViewAppoint from '../views/ViewAppoint.vue'
 import Create from '../views/Create.vue'
+import Admin from '../views/Admin.vue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [{
   path: '/create',
   name: 'Create',
   component: Create
+},
+{
+  path: '/admin',
+  name: 'Admin',
+  component: Admin
 },
 {
   path: '/about',
