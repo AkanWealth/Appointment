@@ -13,9 +13,6 @@ axios.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${token}`
   }
   return config
-},
-error => {
-  return Promise.reject(error)
 })
 // axios.defaults.headers.common.Authorization =
 //     'Bearer ' + localStorage.getItem('token')
