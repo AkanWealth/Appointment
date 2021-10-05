@@ -1,25 +1,6 @@
 <template>
   <div class="hello">
     <h1>Welcome User</h1>
-
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <router-link to="/" class="nav-link">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/view-user" class="nav-link active"
-          >View User</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <router-link to="/view-appointment" class="nav-link"
-          >View Appointment</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-      </li>
-    </ul>
     <div class="table">
       <table class="table table-striped">
         <thead>
@@ -34,7 +15,11 @@
             <td>{{ n.first_name }}</td>
             <td>{{ n.last_name }}</td>
             <td>{{ n.email }}</td>
-            <button type="button" class="btn btn-primary" @click="remove(n.user_id)">
+            <button
+              type="button"
+              class="btn btn-primary"
+              @click="remove(n.user_id)"
+            >
               Remove
             </button>
           </tr>

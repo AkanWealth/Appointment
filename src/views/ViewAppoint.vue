@@ -1,37 +1,20 @@
 <template>
   <div class="hello">
     <h1>Welcome User</h1>
-
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <router-link to="/" class="nav-link">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/view-user" class="nav-link">View User</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/view-appointment" class="nav-link active"
-          >View Appointment</router-link
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-      </li>
-    </ul>
     <div class="table">
       <table class="table table-striped">
         <thead>
           <tr>
             <th style="font-size: 1.5rem">Full Name</th>
             <th style="font-size: 1.5rem">Email</th>
-            <th style="font-size: 1.5rem"> Phone Number</th>
+            <th style="font-size: 1.5rem">Phone Number</th>
             <th style="font-size: 1.5rem">Message</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="n in appointment" :key="n.id">
             <td>{{ n.fname }}</td>
-            <td>{{  n.email }}</td>
+            <td>{{ n.email }}</td>
             <td>{{ n.mobile }}</td>
             <td>{{ n.book_appoint }}</td>
             <!-- <v-btn text depressed color="primary" @click="remove">

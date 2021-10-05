@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <form class="col-md-6">
-    <h3>Login</h3>
+      <h3>Login</h3>
       <div class="mb-3 mb-5">
         <input
           type="email"
@@ -21,7 +21,9 @@
           v-model="password"
         />
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Login</button>
+      <button type="submit" class="btn btn-primary" @click.prevent="submit">
+        Login
+      </button>
     </form>
   </div>
 </template>
@@ -55,14 +57,9 @@ export default {
           console.log(response)
           this.$router.push('/')
         }
-
-        // localStorage.setItem('token', response.data.token)
-        // this.$store.dispatch('users', response.data.user)
-        // console.log(response)
-        // this.$router.push('/')
         // location.reload()
       } catch (error) {
-        this.error = ('Invalid Email or Password')
+        this.error = 'Invalid request'
         console.log(this.error)
       }
     }
