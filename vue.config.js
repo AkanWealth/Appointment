@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    proxy: 'https://https://appointment202.herokuapp.com/'
+    proxy: 'https://pedantic-gates-2a327b.netlify.app/'
   }
 }
