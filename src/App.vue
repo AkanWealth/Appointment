@@ -1,40 +1,57 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tech</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/about" class="nav-link">About</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/register" class="nav-link">Sign Up</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/login" class="nav-link">Login</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/view-user" class="nav-link">View Users</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/create" class="nav-link">Create an Appointment</router-link>
-        </li>
-      </ul>
-      <!-- <ul class="navbar-nav ml-auto" v-if="users">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Tech</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <router-link to="/" class="nav-link">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/about" class="nav-link">About</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/register" class="nav-link">Sign Up</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/login" class="nav-link">Login</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/view-user" class="nav-link"
+                >View Users</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/view-appointment" class="nav-link"
+                >View Appointment</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link to="/create" class="nav-link"
+                >Create an Appointment</router-link
+              >
+            </li>
+          </ul>
+          <!-- <ul class="navbar-nav ml-auto" v-if="users">
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link" @click="logout">Logout</a>
         </li>
       </ul> -->
-    </div>
-  </div>
-</nav>
+        </div>
+      </div>
+    </nav>
     <router-view />
   </div>
 </template>
@@ -80,7 +97,7 @@ export default {
 .text-decoration-none {
   font-size: 2rem;
 }
-#navbarNav{
+#navbarNav {
   justify-content: end;
 }
 </style>
