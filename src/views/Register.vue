@@ -37,7 +37,9 @@
           v-model="password"
         />
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Submit</button>
+      <button type="submit" class="btn btn-primary" @click.prevent="submit">
+        Submit
+      </button>
     </form>
   </div>
 </template>
@@ -63,10 +65,7 @@ export default {
         })
 
         localStorage.setItem('token', response.data.token)
-        // this.$store.dispatch('users', response.data.user)
-        console.log(response)
         this.$router.push('/login')
-        // location.reload()
       } catch (error) {
         this.error = 'Invalid Email or Password'
         console.log(this.error)

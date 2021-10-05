@@ -34,21 +34,11 @@
               >
             </li>
             <li class="nav-item">
-              <router-link to="/view-appointment" class="nav-link"
-                >View Appointment</router-link
-              >
-            </li>
-            <li class="nav-item">
               <router-link to="/create" class="nav-link"
                 >Create an Appointment</router-link
               >
             </li>
           </ul>
-          <!-- <ul class="navbar-nav ml-auto" v-if="users">
-        <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link" @click="logout">Logout</a>
-        </li>
-      </ul> -->
         </div>
       </div>
     </nav>

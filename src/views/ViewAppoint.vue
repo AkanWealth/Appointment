@@ -45,7 +45,6 @@ export default {
       this.$router.push('/login')
     }
     this.$store.dispatch('appointment', response.data)
-    console.log(this.$store.getters.appointment)
   },
   computed: {
     ...mapGetters(['appointment'])

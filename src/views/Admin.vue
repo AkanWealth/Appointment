@@ -32,7 +32,9 @@
         <div class="dataTables_paginate paging_simple_numbers">
           <ul class="pagination">
             <li>
-              <a href="#" class="page-link" @click.prevent="previous">Previous</a>
+              <a href="#" class="page-link" @click.prevent="previous"
+                >Previous</a
+              >
             </li>
             <li>
               <a href="#" class="page-link" @click.prevent="next">Next</a>
@@ -64,11 +66,9 @@ export default {
     const appointment = await axios.get(
       'appointment' + '?page=' + this.meta.page + '&limit=' + this.meta.limit
     )
-    console.log(this.$store.getters.appointment)
-    console.log(appointment.data.meta)
     if (appointment.data.meta) {
       this.meta = appointment.data.meta
-      return this.$store.dispatch('appointment', appointment.data.meta.data)
+      this.$store.dispatch('appointment', appointment.data.meta.data)
     }
   },
   computed: {
